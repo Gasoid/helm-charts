@@ -40,7 +40,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: TLS_ENABLED
-            value: {{ .Values.mergebot.tlsEnabled }}
+            value: {{ .Values.mergebot.tlsEnabled | quote }}
           - name: TLS_DOMAIN
             value: {{ .Values.mergebot.tlsDomain }}
           - name: GITLAB_URL

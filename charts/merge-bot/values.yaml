@@ -78,6 +78,7 @@ livenessProbe:
   httpGet:
     path: /healthy
     port: http
+  periodSeconds: 30
 readinessProbe:
   httpGet:
     path: /healthy
