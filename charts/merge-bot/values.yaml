@@ -6,6 +6,7 @@ mergebot:
   gitlabSecret:
     enabled: false # whether to use secret, it must contain gitlab-token secret.
     name: "merge-bot"
+  sentryEnabled: true
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 1

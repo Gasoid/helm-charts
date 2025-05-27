@@ -39,6 +39,12 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+          - name: SENTRY_ENVIRONMENT
+            value: kubernetes
+          - name: SENTRY_RELEASE
+            value: {{ .Chart.AppVersion }}
+          - name: SENTRY_ENABLED
+            value: {{ .Values.mergebot.sentryEnabled | quote }}
           - name: TLS_ENABLED
             value: {{ .Values.mergebot.tlsEnabled | quote }}
           - name: TLS_DOMAIN
