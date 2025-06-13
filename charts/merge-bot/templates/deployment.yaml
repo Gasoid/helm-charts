@@ -52,7 +52,7 @@ spec:
           - name: GITLAB_URL
             value: {{ .Values.mergebot.gitlabURL }}
           - name: GITLAB_MAX_REPO_SIZE
-            value: {{ .Values.mergebot.gitlabMaxRepoSize }}
+            value: {{ .Values.mergebot.gitlabMaxRepoSize | quote }}
           {{- if .Values.mergebot.gitlabSecret.enabled }}
           - name: GITLAB_TOKEN
             valueFrom:
