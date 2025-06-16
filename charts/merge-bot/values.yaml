@@ -3,7 +3,7 @@ mergebot:
   tlsDomain: ""
   gitlabToken: ""
   gitlabURL: ""
-  # gitlabMaxRepoSize: 500000000 # 500Mb
+  gitlabMaxRepoSize: 500Mb # 1Gb, 100Kb
   gitlabSecret:
     enabled: false # whether to use secret, it must contain gitlab-token secret.
     name: "merge-bot"

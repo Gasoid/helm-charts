@@ -51,6 +51,8 @@ spec:
             value: {{ .Values.mergebot.tlsDomain }}
           - name: GITLAB_URL
             value: {{ .Values.mergebot.gitlabURL }}
+          - name: GITLAB_MAX_REPO_SIZE
+            value: {{ .Values.mergebot.gitlabMaxRepoSize }}
           {{- if .Values.mergebot.gitlabSecret.enabled }}
           - name: GITLAB_TOKEN
             valueFrom:
