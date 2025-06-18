@@ -45,6 +45,8 @@ spec:
             value: {{ .Chart.AppVersion }}
           - name: SENTRY_ENABLED
             value: {{ .Values.mergebot.sentryEnabled | quote }}
+          - name: DEBUG
+            value: {{ .Values.mergebot.debug | quote }}
           - name: TLS_ENABLED
             value: {{ .Values.mergebot.tlsEnabled | quote }}
           - name: TLS_DOMAIN
