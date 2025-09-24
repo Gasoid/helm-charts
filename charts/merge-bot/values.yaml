@@ -1,19 +1,39 @@
 mergebot:
+  # -- whether tls is enabled, certificate will be issued by letsencrypt
+  # you have to provide tlsDomain 
   tlsEnabled: false
+  # -- if tlsEnabled is true, you have to set tlsDomain
   tlsDomain: ""
+  # -- gitlab token
   gitlabToken: ""
+  # -- gitlab url in case it is not gitlab cloud
   gitlabURL: ""
+  # -- max repo size for !update, !merge command
   gitlabMaxRepoSize: 500Mb # 1Gb, 100Kb
+
   gitlabSecret:
-    enabled: false # whether to use secret, it must contain gitlab-token secret.
+    # -- whether to use secret, it must contain gitlab-token secret.
+    enabled: false
+    # -- secret name
+    # k8s secret where gitlab token is stored, gitlabToken will be ignored, secret example:
+    # data:
+    #   gitlab-token: "secret"
     name: "merge-bot"
+  # -- sentry
   sentryEnabled: true
+  # -- debug mode
   debug: false
 
-# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+# @ignored
 replicaCount: 1
 
-# This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+# -- whether prometheus metrics are exposed
+# port is 8081, port name is metrics
+metrics:
+  enabled: true
+
+
+# @ignored
 image:
   repository: gasoid/merge-bot
   # This sets the pull policy for images.
@@ -21,13 +41,15 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-# This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+# @ignored
 imagePullSecrets: []
-# This is to override the chart name.
+# @ignored
 nameOverride: ""
+# @ignored
 fullnameOverride: ""
 
-# This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
+# @ignored
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
@@ -39,25 +61,26 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-# This is for setting Kubernetes Annotations to a Pod.
-# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+# @ignored
 podAnnotations: {}
-# This is for setting Kubernetes Labels to a Pod.
-# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+
+# @ignored
 podLabels: {}
 
+# @ignored
 podSecurityContext: {}
 
+# @ignored
 securityContext: {}
 
-# This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
+# @ignored
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 8080
 
-# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
+# @ignored
 ingress:
   enabled: false
   className: ""
@@ -74,6 +97,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# @ignored
 resources:
   requests:
     memory: "50Mi"
@@ -82,20 +106,25 @@ resources:
     memory: "200Mi"
     cpu: "500m"
 
-# This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+# @ignored
 livenessProbe:
   httpGet:
     path: /healthy
     port: http
   periodSeconds: 30
+
+# @ignored
 readinessProbe:
   httpGet:
     path: /healthy
     port: http
 
 
+# @ignored
 nodeSelector: {}
 
+# @ignored
 tolerations: []
 
+# @ignored
 affinity: {}
