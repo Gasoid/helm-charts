@@ -21,8 +21,6 @@ To uninstall the chart:
 helm uninstall my-merge-bot
 ```
 
-## Variables
-
 ## Values
 
 | Key | Type | Default | Description |
