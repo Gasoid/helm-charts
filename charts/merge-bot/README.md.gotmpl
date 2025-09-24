@@ -1,0 +1,26 @@
+# Merge-bot helm charts
+
+{{ template "chart.badgesSection" . }}
+
+## Usage
+
+[Helm](https://helm.sh) must be installed to use the charts.  Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
+
+Once Helm has been set up correctly, add the repo as follows:
+
+
+To install the merge-bot chart:
+
+```bash
+helm install --repo https://gasoid.github.io/helm-charts my-merge-bot merge-bot
+```
+
+To uninstall the chart:
+
+```bash
+helm uninstall my-merge-bot
+```
+
+
+{{ template "chart.valuesSection" . }}
