@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   merge-bot:
   - apiVersion: v2
+    appVersion: 3.6.2
+    created: "2025-11-03T19:53:59.343795245Z"
+    description: merge-bot enables to make merging smoother
+    digest: 738e5fc80811d9f9fc9d2a62133516034349ff11914b49209df163fa5d26bf0d
+    name: merge-bot
+    type: application
+    urls:
+    - https://github.com/Gasoid/helm-charts/releases/download/merge-bot-1.6.3/merge-bot-1.6.3.tgz
+    version: 1.6.3
+  - apiVersion: v2
     appVersion: 3.6.1
     created: "2025-11-02T08:59:22.205120461Z"
     description: merge-bot enables to make merging smoother
@@ -241,4 +251,4 @@ entries:
     urls:
     - https://github.com/Gasoid/helm-charts/releases/download/merge-bot-1.0.1/merge-bot-1.0.1.tgz
     version: 1.0.1
-generated: "2025-11-02T08:59:22.205978153Z"
+generated: "2025-11-03T19:53:59.344045352Z"
