@@ -23,6 +23,7 @@ mergebot:
   sentryEnabled: true
   # -- debug mode
   debug: false
+  envFrom: []
 
 # @ignored
 replicaCount: 1
