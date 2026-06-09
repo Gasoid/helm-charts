@@ -111,14 +111,14 @@ resources:
 livenessProbe:
   httpGet:
     path: /healthy
-    port: http
+    port: metrics
   periodSeconds: 30
 
 # @ignored
 readinessProbe:
   httpGet:
     path: /healthy
-    port: http
+    port: metrics
 
 
 # @ignored
