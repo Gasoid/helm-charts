@@ -135,3 +135,13 @@ volumes: []
 
 # @ignored
 volumeMounts: []
+
+redis:
+  # -- whether redis is enabled
+  enabled: false
+  # -- redis port
+  port: 6379
+  # -- redis image
+  image: redis
+  # -- redis tag
+  tag: 8.8

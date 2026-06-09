@@ -1,0 +1,25 @@
+{{- if .Values.redis.enabled }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: "redis-merge-bot"
+spec:
+  selector:
+    matchLabels:
+      app: "redis-merge-bot"
+  serviceName: "redis-merge-bot"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "redis-merge-bot"
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: "redis-merge-bot"
+        image: {{ .Values.redis.image }}:{{ .Values.redis.tag }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: {{ .Values.redis.port }}
+          name: db
+{{- end }}

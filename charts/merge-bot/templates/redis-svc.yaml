@@ -1,0 +1,15 @@
+{{- if .Values.redis.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: "redis-merge-bot"
+spec:
+  ports:
+  - port: {{ .Values.redis.port }}
+    targetPort: db
+    protocol: TCP
+    name: db
+  type: ClusterIP
+  selector:
+    app: "redis-merge-bot"
+{{- end }}

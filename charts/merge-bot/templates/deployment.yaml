@@ -73,6 +73,10 @@ spec:
           - name: GITLAB_TOKEN
             value: {{ .Values.mergebot.gitlabToken }}
           {{- end }}
+          {{- if .Values.redis.enabled }}
+          - name: REDIS_URL
+            value: redis://redis-merge-bot:6379/0
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
