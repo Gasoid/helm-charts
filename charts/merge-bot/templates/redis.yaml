@@ -22,4 +22,14 @@ spec:
         ports:
         - containerPort: {{ .Values.redis.port }}
           name: db
+        readinessProbe:
+          tcpSocket:
+            port: {{ .Values.redis.port }}
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: {{ .Values.redis.port }}
+          initialDelaySeconds: 15
+          periodSeconds: 30
 {{- end }}

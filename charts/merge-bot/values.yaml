@@ -138,7 +138,7 @@ volumeMounts: []
 
 redis:
   # -- whether redis is enabled
-  enabled: false
+  enabled: true
   # -- redis port
   port: 6379
   # -- redis image
